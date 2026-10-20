@@ -105,7 +105,7 @@ updateCurrentSpan({
   output: { response: 'world' },
   model: 'gpt-4o',
   modelParameters: { temperature: 0.7, maxTokens: 1024 },
-  usage: { inputTokens: 100, outputTokens: 50 },
+  usage: { input: 100, output: 50, cacheRead: 0, cacheWrite: 0 },
 });
 
 updateCurrentTrace({
@@ -114,6 +114,20 @@ updateCurrentTrace({
   tags: ['production'],
 });
 ```
+
+### Token usage fields
+
+The `usage` object accepts these exact `TokenUsage` fields; unknown property names are ignored:
+
+| Field | Meaning |
+|---|---|
+| `input` | Input token count |
+| `output` | Output token count |
+| `cacheRead` | Cache-read tokens |
+| `cacheWrite` | Cache-write tokens |
+| `total` | Total tokens; derived from input and output when omitted |
+
+For custom provider attributes outside this shape, use `attributes` on `updateCurrentSpan`.
 
 ## Flush in short-lived scripts
 
