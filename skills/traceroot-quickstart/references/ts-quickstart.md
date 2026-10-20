@@ -23,11 +23,9 @@ async function step(query: string) {
 }
 
 async function main(query: string) {
-  return await observe({ name: 'quickstart.root', type: 'agent' }, async () => {
-    const result = { result: await observe({ name: 'quickstart.step', type: 'span' }, step, query) };
-    console.log(`traceId=${getCurrentTraceId()}`); // search this in the TraceRoot UI → Traces
-    return result;
-  });
+  const result = { result: await observe({ name: 'quickstart.step', type: 'span' }, step, query) };
+  console.log(`traceId=${getCurrentTraceId()}`); // search this in the TraceRoot UI → Traces
+  return result;
 }
 
 await observe({ name: 'quickstart.root', type: 'agent' }, main, 'hello');
