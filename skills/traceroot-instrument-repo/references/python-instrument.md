@@ -94,7 +94,13 @@ update_current_span(
     output={"response": "world"},
     model="gpt-4o",
     model_parameters={"temperature": 0.7, "max_tokens": 1024},
-    usage={"input_tokens": 100, "output_tokens": 50},
+    usage={
+        "input_tokens": 100,       # gross, cache-inclusive input tokens
+        "output_tokens": 50,
+        # Optional when reported by the provider:
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 0,
+    },
     prompt=[{"role": "user", "content": "hello"}],
 )
 
@@ -105,6 +111,8 @@ update_current_trace(
     metadata={"environment": "prod"},
 )
 ```
+
+Manual `usage` accepts the exact keys `input_tokens`, `output_tokens`, `cache_read_tokens`, and `cache_write_tokens` (the cache keys are optional when reported by the provider). Supplied values are read during ingestion and take precedence over text-based estimation.
 
 ## Flush in short-lived scripts
 
