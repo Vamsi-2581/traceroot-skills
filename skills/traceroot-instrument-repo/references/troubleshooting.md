@@ -9,7 +9,7 @@ Work top to bottom. Each row is symptom → likely cause → fix.
 | LLM calls not auto-captured | SDK initialized after the LLM client | `initialize()` must run **before** the LLM library is imported/instantiated. |
 | Self-hosted: nothing arrives | backend URL not pointed at your instance | Set `TRACEROOT_HOST_URL` (Python) / `baseUrl` or `TRACEROOT_HOST_URL` (TS). |
 | Trace shows up after a delay | batched export (normal) | Expected — spans batch. For immediate export in scripts/tests, flush (Python) or `disableBatch: true` (TS). |
-| Spans look sparse (LLM only, no tools) | tool/agent functions not wrapped | Wrap them with `@observe` / `observe()` so each call shows input/output. |
+| Spans look sparse (LLM only, no tools) | tool/agent functions are not wrapped, or capture options suppress input/output | Wrap meaningful functions with `@observe` / `observe()`; check the language reference for how arguments and capture flags affect span data. |
 
 ## Localizing a failure
 
