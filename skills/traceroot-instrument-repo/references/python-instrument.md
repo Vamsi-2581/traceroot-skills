@@ -100,6 +100,8 @@ update_current_span(
         # Optional when reported by the provider:
         "cache_read_tokens": 0,
         "cache_write_tokens": 0,
+        "cache_write_1h_tokens": 0,  # Optional, when reported by the provider
+        "reasoning_tokens": 0,       # Optional, when reported by the provider
     },
     prompt=[{"role": "user", "content": "hello"}],
 )
@@ -112,7 +114,7 @@ update_current_trace(
 )
 ```
 
-Manual `usage` accepts the exact keys `input_tokens`, `output_tokens`, `cache_read_tokens`, and `cache_write_tokens` (the cache keys are optional when reported by the provider). Supplied values are read during ingestion and take precedence over text-based estimation.
+Manual `usage` accepts the exact keys `input_tokens`, `output_tokens`, `cache_read_tokens`, `cache_write_tokens`, `cache_write_1h_tokens`, and `reasoning_tokens` (the cache and reasoning keys are optional when reported by the provider). When matching instrumentor token fields are absent, ingestion uses supplied manual values instead of text-based estimation.
 
 ## Flush in short-lived scripts
 
