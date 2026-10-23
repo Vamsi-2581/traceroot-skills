@@ -69,8 +69,6 @@ const answer = await observe({ name: 'process_step', type: 'span' }, async () =>
 | `tags` | `string[]` | — | Tags for filtering |
 | `captureInput` | `boolean` | `true` | Capture function arguments as span input |
 | `captureOutput` | `boolean` | `true` | Capture the return value as span output |
-| `sessionId` | `string` | — | Session identifier |
-| `userId` | `string` | — | User identifier |
 
 ## Set user and session context
 
