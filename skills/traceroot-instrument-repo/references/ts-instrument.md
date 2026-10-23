@@ -105,7 +105,7 @@ updateCurrentSpan({
   output: { response: 'world' },
   model: 'gpt-4o',
   modelParameters: { temperature: 0.7, maxTokens: 1024 },
-  usage: { input: 100, output: 50, cacheRead: 0, cacheWrite: 0 },
+  usage: { input: 100, output: 50 }, // optional cache counts only when reported
 });
 
 updateCurrentTrace({
