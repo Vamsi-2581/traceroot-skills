@@ -98,10 +98,8 @@ update_current_span(
         "input_tokens": 100,       # gross, cache-inclusive input tokens
         "output_tokens": 50,
         # Optional when reported by the provider:
-        "cache_read_tokens": 0,
-        "cache_write_tokens": 0,
-        "cache_write_1h_tokens": 0,  # Optional, when reported by the provider
-        "reasoning_tokens": 0,       # Optional, when reported by the provider
+        # Add cache_read_tokens, cache_write_tokens, cache_write_1h_tokens, or
+        # reasoning_tokens only when the provider reports those values.
     },
     prompt=[{"role": "user", "content": "hello"}],
 )
