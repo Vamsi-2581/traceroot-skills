@@ -5,7 +5,7 @@
 1. Install dependencies: `npm install @traceroot-ai/traceroot dotenv`
 2. Set `TRACEROOT_API_KEY` in your `.env` file.
 3. Create `quickstart.ts` with the code below.
-4. Run `npx tsx quickstart.ts` — it prints `traceId=...`. **This runner is required by the top-level `await` in the script.** If you use another runner, configure the file as an ES module (for example, set `"type": "module"` in `package.json` or use `.mts` with a compatible TypeScript module setting).
+4. Run `npx tsx quickstart.ts` — it prints `traceId=...`. **Top-level `await` requires an ES module.** For another runner, set `"type": "module"` in `package.json` or rename the file to `quickstart.mts`.
 5. Open the TraceRoot UI → Traces — find the `quickstart.root` trace (search the printed trace id to locate it immediately).
 
 ## quickstart.ts
