@@ -121,7 +121,7 @@ The `usage` object accepts these exact `TokenUsage` fields; unknown property nam
 
 | Field | Meaning |
 |---|---|
-| `input` | Input token count |
+| `input` | Gross input tokens; includes cache-read/cache-write tokens when the provider reports them as input. |
 | `output` | Output token count |
 | `cacheRead` | Cache-read tokens |
 | `cacheWrite` | Cache-write tokens |
