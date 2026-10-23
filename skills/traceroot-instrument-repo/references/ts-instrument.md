@@ -25,7 +25,7 @@ TraceRoot.initialize({
 
 ### Default integration behavior
 
-Omitting `instrumentModules` enables automatic patching for supported CommonJS modules found in the process. Pass an explicit object to limit patching to selected modules, or `{}` for manual spans only. The automatic patching path does not cover ESM imports; see the ESM note in [the TypeScript quickstart](../../traceroot-quickstart/references/ts-quickstart.md).
+Omitting `instrumentModules` enables automatic patching for supported CommonJS modules found in the process. Pass an explicit object to limit patching to selected modules, or `{}` for manual spans only. The automatic patching path covers supported CommonJS modules; it does not cover ESM imports. In ESM applications, pass explicit module references to `instrumentModules`.
 
 | Setting | Behavior |
 |---|---|
